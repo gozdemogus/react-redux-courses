@@ -1,8 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeName, changeDescription, changeCost } from '../store/slices/formSlice';
 
 function CourseForm() {
-
+    const dispatch = useDispatch();
     const { name, description, cost } = useSelector((state) => {
         return {
             name: state.form.name,
@@ -20,21 +21,32 @@ function CourseForm() {
                 <div className='field-group'>
                     <div className='field'>
                         <label className='label'>Ad</label>
-                        <input className='input is-expanded'></input>
+                        <input className='input is-expanded' onChange={(event) => {
+                            dispatch(changeName(event.target.value));
+                        }}
+                        value={name}
+                        ></input>
                     </div>
                     <div className='field'>
                         <label className='label'>Açıklama</label>
-                        <textarea className='input is-expanded'></textarea>
+                        <textarea className='input is-expanded' onChange={(event) => {
+                            dispatch(changeDescription(event.target.value));
+                        }}
+                        value={description}
+                        ></textarea>
                     </div>
                     <div className='field'>
                         <label className='label'>Fiyat</label>
-                        <input className='input is-expanded' type="number"></input>
+                        <input className='input is-expanded' type="number" onChange={(event) => {
+                            dispatch(changeCost(parseInt(event.target.value)));
+                        }}
+                        value={cost}
+                        ></input>
                     </div>
                     <div className='field'>
                         <button className='button is-primary'>Kaydet</button>
                     </div>
                 </div>
-
             </form>
         </div>
     )
