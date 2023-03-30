@@ -16,10 +16,10 @@ function CourseForm() {
 
     //console.log(name,description,cost)
 
-const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(addCourse({name,description,cost}));
-}
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(addCourse({ name, description, cost }));
+    }
 
     return (
         <div className='courseForm panel'>
@@ -31,7 +31,7 @@ const handleSubmit = (e) => {
                         <input className='input is-expanded' onChange={(event) => {
                             dispatch(changeName(event.target.value));
                         }}
-                        value={name}
+                            value={name}
                         ></input>
                     </div>
                     <div className='field'>
@@ -39,7 +39,7 @@ const handleSubmit = (e) => {
                         <textarea className='input is-expanded' onChange={(event) => {
                             dispatch(changeDescription(event.target.value));
                         }}
-                        value={description}
+                            value={description}
                         ></textarea>
                     </div>
                     <div className='field'>
@@ -47,7 +47,7 @@ const handleSubmit = (e) => {
                         <input className='input is-expanded' type="number" onChange={(event) => {
                             dispatch(changeCost(parseInt(event.target.value)));
                         }}
-                        value={cost}
+                            value={cost}
                         ></input>
                     </div>
                     <div className='field'>
