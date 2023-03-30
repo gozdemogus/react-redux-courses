@@ -23,6 +23,7 @@ const formSlice = createSlice({
     },
     //ekleme islemi tamamlandıktan sonra formun icini temizlemek icin
     extraReducers(builder){
+        //hangi actiondan sonra? addCourse
         builder.addCase(addCourse,(state,action)=> {
             state.name= '';
             state.description= '';

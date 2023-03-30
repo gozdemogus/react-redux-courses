@@ -15,13 +15,20 @@ const courseSlice = createSlice({
                 cost: action.payload.cost,
                 id: nanoid()
             })
+        },
+        removeCourse(state, action) {
+            //debugger
+            const updatedCourses = state.data.filter((course) => {
+                return course.id !== action.payload;
+            });
+            state.data = updatedCourses;
         }
     }
 
 });
 
 //methodu kullanmak icin disari aciyoruz
-export const {addCourse} = courseSlice.actions;
+export const { addCourse, removeCourse } = courseSlice.actions;
 
 //store.js'de configure ederken bu export edilmis deger kullaniliyor
 export const courseReducer = courseSlice.reducer;
