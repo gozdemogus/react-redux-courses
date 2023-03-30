@@ -16,6 +16,10 @@ const courseSlice = createSlice({
                 id: nanoid()
             })
         },
+        changeSearchTerm(state, action) {
+            //debugger
+            state.searchTerm = action.payload
+        },
         removeCourse(state, action) {
             //debugger
             const updatedCourses = state.data.filter((course) => {
@@ -24,11 +28,10 @@ const courseSlice = createSlice({
             state.data = updatedCourses;
         }
     }
-
 });
 
 //methodu kullanmak icin disari aciyoruz
-export const { addCourse, removeCourse } = courseSlice.actions;
+export const { addCourse, removeCourse, changeSearchTerm } = courseSlice.actions;
 
 //store.js'de configure ederken bu export edilmis deger kullaniliyor
 export const courseReducer = courseSlice.reducer;

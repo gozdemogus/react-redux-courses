@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <CourseForm></CourseForm>
-      {/* <CourseSearch></CourseSearch> */}
+      <CourseSearch></CourseSearch>
       <CourseList></CourseList>
       {/* <CourseValue></CourseValue> */}
     </div>
