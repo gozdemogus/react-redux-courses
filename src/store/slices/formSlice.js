@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { addCourse } from './courseSlice';
 
 const formSlice = createSlice({
     name: 'form',
@@ -10,7 +11,7 @@ const formSlice = createSlice({
     reducers: {
         changeName(state, action) {
             //gonderilen deger action.payload'dan geliyor
-            console.log("payload:", action.payload);
+            //console.log("payload:", action.payload);
             state.name = action.payload;
         },
         changeDescription(state, action) {
@@ -19,6 +20,14 @@ const formSlice = createSlice({
         changeCost(state, action) {
             state.cost = action.payload;
         }
+    },
+    //ekleme islemi tamamlandıktan sonra formun icini temizlemek icin
+    extraReducers(builder){
+        builder.addCase(addCourse,(state,action)=> {
+            state.name= '';
+            state.description= '';
+            state.cost= 0
+        })
     }
 });
 
