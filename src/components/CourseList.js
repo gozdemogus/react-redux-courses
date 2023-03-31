@@ -6,8 +6,16 @@ function CourseList() {
 
   const dispatch = useDispatch();
 
-  const courses = useSelector((state) => {
-    return state.courses.data;
+  const { courses } = useSelector(({ form, courses: { data, searchTerm } }) => {
+    //return state.courses.data;
+    const filteredCourses = data.filter((course) =>
+      course.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    return {
+      courses: filteredCourses
+    }
+
   });
 
   const renderedCourses = courses.map((course) => {
