@@ -10,7 +10,7 @@ function App() {
       <CourseForm></CourseForm>
       <CourseSearch></CourseSearch>
       <CourseList></CourseList>
-      {/* <CourseValue></CourseValue> */}
+      <CourseValue></CourseValue>
     </div>
   );
 }
